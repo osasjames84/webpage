@@ -99,20 +99,6 @@ const NewLayout = ({ children }) => {
                                 <li><a href="#">Kids Menu</a></li>
                             </ul>
                         </div>
-                        {/* <div className="menu-class">
-                            <p className="head">Products</p>
-                            <ul className="list">
-                                <li>Product 1</li>
-                                <li>Product 2</li>
-                                <li>Product 3</li>
-                                <li>Product 4</li>
-                                <li>Product 5</li>
-                                <li>Product 6</li>
-                                <li>Product 7</li>
-                                <li>Product 8</li>
-                                <li>Product 9</li>
-                            </ul>
-                        </div> */}
                         <div className="menu-class">
                             <p className="head"><a href="/booking" className="nav-link">Booking</a></p>
                         </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../GenericLayout";
+import Layout from "../Layouts/GenericLayout";
+import NewLayout from "../Layouts/NewLayout";
 
 const Weight = ({ active = false, title, value }) => (
     <div>
@@ -25,35 +26,6 @@ const Tag = (props) => <span className="tag">{props.children}</span>;
 
 const App = () => {
     useEffect(() => {
-        // const handleScroll = () => {
-        //     const scrollPosition = window.scrollY;
-        //     if (scrollPosition > 500) {
-        //         $("#hid").css("visibility", "hidden");
-        //     } else {
-        //         $("#hid").css("visibility", "visible");
-        //     }
-        // };
-
-        // window.addEventListener("scroll", handleScroll);
-
-        // $("#sel-1")
-        //     .on("click", () => {
-        //         $("#curr-img").css("backgroundImage", "url('/assets/m1.png')");
-        //         $("#sel-2").removeClass("active");
-        //         $("#sel-1").addClass("active");
-        //     })
-        //     .addClass("active");
-
-        // $("#sel-2").on("click", () => {
-        //     $("#curr-img").css("backgroundImage", "url('/assets/m3.webp')");
-        //     $("#sel-1").removeClass("active");
-        //     $("#sel-2").addClass("active");
-        // });
-
-        // return () => {
-        //     window.removeEventListener("scroll", handleScroll);
-        // };
-        // Handle scroll event
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
             const hidElement = document.getElementById("hid");
