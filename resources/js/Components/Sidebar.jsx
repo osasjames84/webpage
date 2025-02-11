@@ -65,6 +65,19 @@ const Sidebar = () => {
                         Messages
                     </a>
                 </li>
+                <li style={styles.sidebarItem}>
+                    <a
+                        href="/admin/inventory"
+                        style={{
+                            ...styles.sidebarLink,
+                            ...(currentPath === "/admin/inventory"
+                                ? styles.activeSidebarLink
+                                : {}),
+                        }}
+                    >
+                        Stock Inventory
+                    </a>
+                </li>
             </ul>
             <div style={styles.logoutContainer}>
                 <button onClick={handleLogout} style={styles.logoutButton}>

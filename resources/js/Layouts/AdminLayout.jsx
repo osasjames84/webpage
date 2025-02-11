@@ -1,21 +1,3 @@
-// import React from "react";
-// import { Helmet } from "react-helmet";
-
-// const AdminLayout = ({ children }) => (
-//     <div>
-//         <Helmet>
-//             <title>Admin Panel</title>
-
-//         </Helmet>
-//         <nav>
-//             <h2>Admin Panel</h2>
-//         </nav>
-//         <main>{children}</main>
-//     </div>
-// );
-
-// export default AdminLayout;
-
 import React from "react";
 import { Helmet } from "react-helmet";
 import Sidebar from "../Components/Sidebar";

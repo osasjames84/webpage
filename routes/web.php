@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\InventoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -149,6 +150,9 @@ Route::middleware(['web', 'auth:admin'])->prefix('admin')->group(function () {
     Route::delete('/manage-menu/{menuType}/{item}', [MenuController::class, 'delete'])->name('admin.manage-menu.delete');
     Route::get('/manage-menu/{menuType}/{item}/edit', [MenuController::class, 'edit'])->name('admin.manage-menu.edit');
     Route::put('/manage-menu/{menuType}/{item}', [MenuController::class, 'update'])->name('admin.manage-menu.update');
+
+    // inventory related routes
+    Route::get('/inventory', [InventoryController::class, 'inventoryPage'])->name('admin.inventory');
 });
 
 
