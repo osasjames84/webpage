@@ -13,15 +13,28 @@ class InventoryController extends Controller
     {
         $search = $request->input('search');
 
-        $query = StockLevel::with(['morningMenu', 'eveningMenu', 'kidsMenu']);
+        $query = StockLevel::with(['morningMenu', 'eveningMenu', 'kidsMenu'])
+            ->select('stock_level.*')
+            ->selectRaw("CASE 
+                WHEN itemID_morning IS NOT NULL THEN 'Morning Menu'
+                WHEN itemID_evening IS NOT NULL THEN 'Evening Menu'
+                WHEN itemID_kids IS NOT NULL THEN 'Kids Menu'
+                ELSE 'Uncategorized'
+            END AS category");
 
         if ($search) {
             $query->where(function ($q) use ($search) {
                 $q->where('ingredientName', 'like', "%{$search}%")
-                  ->orWhere('ingredientInformation', 'like', "%{$search}%")
-                  ->orWhereHas('morningMenu', fn($q) => $q->where('itemName', 'like', "%{$search}%"))
-                  ->orWhereHas('eveningMenu', fn($q) => $q->where('itemName', 'like', "%{$search}%"))
-                  ->orWhereHas('kidsMenu', fn($q) => $q->where('itemName', 'like', "%{$search}%"));
+                    ->orWhere('ingredientInformation', 'like', "%{$search}%")
+                    ->orWhereHas('morningMenu', function ($q) use ($search) {
+                        $q->where('itemName', 'like', "%{$search}%");
+                    })
+                    ->orWhereHas('eveningMenu', function ($q) use ($search) {
+                        $q->where('itemName', 'like', "%{$search}%");
+                    })
+                    ->orWhereHas('kidsMenu', function ($q) use ($search) {
+                        $q->where('itemName', 'like', "%{$search}%");
+                    });
             });
         }
 

@@ -7,9 +7,9 @@ class CreateAdminsTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('app_admins', function (Blueprint $table) {
-            $table->id('adminID'); // set the auto increament ID field explicitly as `adminID`; part of erd specs
-            // $table->string('name'); //removed name field; not part of erd specification
+        Schema::create('admins', function (Blueprint $table) {
+            $table->id();
+            // $table->string('name');
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('password');
